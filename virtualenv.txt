@@ -1,0 +1,33 @@
+# virtual env manager
+anaconda
+virtualenv
+poertry
+pipenv
+
+# create new virtualenv using pip env
+pipenv install
+
+# Activate virtual env
+pipenv shell
+
+# install packages in virtualenv
+pip instll <package-name>
+pip install -r requirements.txt
+
+# export dependencies
+pip freeze
+pip freeze > requirements.txt
+
+# deactivate virtualenv
+deactivate
+
+# run application in virtual env without activating it
+pipenv run python flask_app/app.py
+
+# python decorators
+
+
+
+# REST API (using flask)
+# REACT FRONTEND (login form)
+# Mongodb ()

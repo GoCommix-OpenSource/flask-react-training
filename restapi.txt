@@ -1,0 +1,20 @@
+
+'\\"' == r'\"'
+'\"' == '"'
+
+# python conventions
+
+https://tedboy.github.io/flask/index.html
+
+# flask mongo engine
+http://docs.mongoengine.org/projects/flask-mongoengine/en/latest/
+
+# flask py mongo
+https://flask-pymongo.readthedocs.io/en/latest/#flask-pymongo
+
+host = localhost , 127.0.0.1
+port = 27017
+batabase_name = flask_mongo
+
+REST API
+MONGODB
