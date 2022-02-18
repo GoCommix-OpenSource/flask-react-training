@@ -39,7 +39,7 @@ student = [
 app = Flask(__name__)
 
 
-app.config.from_pyfile('mongo.cfg')
+# app.config.from_pyfile('mongo.cfg')
 db = MongoEngine(app)
 
 
