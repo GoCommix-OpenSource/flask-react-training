@@ -1,73 +1,29 @@
-# Flask React training
-
-## ***1. Flask installation, environment setup and more***
-### virtual env managers
-anaconda\
-virtualenv\
-poertry\
-pipenv <-- we are using this
-
-### ***create new virtualenv using pip env***
-```python
-pipenv install
-```
-
-### ***Activate virtual env***
-```python
-pipenv shell
-```
-
-
-### ***install package(s) in virtualenv***
-```
-pip instll <package-name>
-pip install -r requirements.txt
-```
-### ***export dependencies ito file***
-```
-pip freeze
-pip freeze > requirements.txt
-```
-### ***deactivate virtualenv***
-```
-deactivate
-```
-### ***You can run application in virtual env without actually activating it***
-```
-pipenv run python flask_app/app.py
-```
-
-### ***Python decorators***
-search online and learn about the concept
-
-## ***2. MongoDB with flask and flask_mongoengine***
-
 ***MongoEngine provides several types of documents classes:***
 
-    1. Document
-    2. EmbeddedDocument
-    3. DynamicDocument
-    4. DynamicEmbeddedDocument
+#### . Document
+#### . EmbeddedDocument
+#### . DynamicDocument
+#### . DynamicEmbeddedDocument
 
 
-### ***1. Document***
+### 1. Document
 This represents a document that has it's own collection in the database, it is created by
 inheriting from `mongoengine.Document` or from our MongoEngine instance (`db.Document`)
 
-### ***2. EmbeddedDocument***
+### 2. EmbeddedDocument
 This represents a document that doesn't have it's own collection in the database but is
 embedded into another document, it is created by inheriting from `db.EmbeddedDocument` class
-### ***3. DynamicDocument***
+### 3. DynamicDocument
 This is a document whose fields are added dynamically, taking advantage of the dynamic nature
 of MongoDB.
 Like the other document types, MongoEngine provides a class for `db.DynamicDocuments`:
-### ***4. DynamicEmbeddedDocument***
+### 4. DynamicEmbeddedDocument
 This has all the properties of DynamicDocument and EmbeddedDocument, Like the other document types, MongoEngine provides a class for `db.DynamicEmbeddedDocuments`:
 Also…..
 
-MongoEngine also provides additional classes that describe and validate the type of data a document's fields should take and optional modifiers to add more details or constraints to each field.
+***MongoEngine also provides additional classes that describe and validate the type of data a document's fields should take and optional modifiers to add more details or constraints to each field.***
 
-#### ***Examples of fields are:***
+#### Examples of fields are:
 ```python 
 StringField() #for string values
 IntField() #for int values
@@ -101,7 +57,7 @@ IntegerField(required =True, unique=True, primary_key=True)
 
 
 
-# Queries and mutation guide and examples
+# Queries and mutation guide
 1. https://docs.mongoengine.org/guide/document-instances.html
 2. https://docs.mongoengine.org/guide/querying.html
 3. https://flask.palletsprojects.com/en/2.0.x/patterns/mongoengine/
