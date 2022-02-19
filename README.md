@@ -19,10 +19,17 @@ pipenv shell
 
 
 ### ***install package(s) in virtualenv***
-```
+```python
+# using pip
+pipenv shell
 pip instll <package-name>
 pip install -r requirements.txt
 ```
+```python
+# using pipenv
+pipenv install <package_name>
+```
+Finally, if you want to use `Pipenv` to manage a project that currently uses a `requirements.txt` file, just navigate to the project’s directory and run `pipenv install`. Pipenv will detect the `requirements.txt` (or you can use the `-r` flag to point to it) and migrate all of the requirements into a `Pipfile`.
 ### ***export dependencies ito file***
 ```
 pip freeze
@@ -40,7 +47,12 @@ pipenv run python flask_app/app.py
 ### ***Python decorators***
 search online and learn about the concept
 
-## ***2. MongoDB with flask and flask_mongoengine***
+## ***Introduction to Git***
+![alt text](https://github.com/GoCommix-OpenSource/flask-react-training/blob/main/git%20commands.png?raw=true)
+
+
+
+## ***3. MongoDB with flask and flask_mongoengine***
 
 ***MongoEngine provides several types of documents classes:***
 
