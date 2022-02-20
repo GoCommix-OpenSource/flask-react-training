@@ -113,7 +113,15 @@ IntegerField(required =True, unique=True, primary_key=True)
 
 
 
-# Queries and mutation guide and examples
+
+# Some Topics to Discover
+1. Python Decorators
+2. MVC project model (Model View Controller)
+3. POSTMAN or any REST api test-client
+4. gitignore
+
+# Some important links
+### Queries and mutation guide and examples
 1. https://docs.mongoengine.org/guide/document-instances.html
 2. https://docs.mongoengine.org/guide/querying.html
 3. https://flask.palletsprojects.com/en/2.0.x/patterns/mongoengine/
