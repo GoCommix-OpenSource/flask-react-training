@@ -119,6 +119,7 @@ IntegerField(required =True, unique=True, primary_key=True)
 2. MVC project model (Model View Controller)
 3. POSTMAN or any REST api test-client
 4. gitignore
+5. Packaging
 
 # Some important links
 ### Queries and mutation guide and examples
