@@ -1,5 +1,5 @@
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_mongoengine import MongoEngine
 # {
 #     "name":"xyz",
@@ -145,6 +145,8 @@ class Movie(db.Document):
     actors = db.ListField()
     imdb = db.EmbeddedDocumentField(Imdb)
 
+    def __str__(self):
+        return self.title
 
 
 
@@ -159,6 +161,7 @@ def hello():
 def get_all_movies():
     # movies = Movie.filter(title="movie2") # get movies with filter
     movies = Movie.objects() # get all the movies
+    print(movies)
     # movies = movies.filter(title="movie1") # there is another way
     # movies = movies.filter(title__icontains="movie") # there is another way also check the link https://docs.mongoengine.org/guide/querying.html for more filter options
     return jsonify(movies)
@@ -176,22 +179,49 @@ def create_movie():
     '''
         add object in the document
     '''
-    # movie = Movie(
-    #     title="Movie1",
-    #     year=2021,
-    #     rated="3.5",
-    #     director="director",
-    #     actors=["actor1", "actor2"]
-    # )
+    movie = Movie(
+        title="Movie1",
+        year=2021,
+        rated="3.5",
+        director="director",
+        actors=["actor1", "actor2"]
+    )
     
-    movie=Movie(title="movie2") # creating a new object/instance
-    movie.year = 2022
-    movie.rated="3.5"
+    # movie=Movie(title="Movie1") # creating a new object/instance
+    # movie.year = 2022
+    # movie.rated="3.5"
     director_name = "director2"
     movie.director=director_name
     movie.actors=["actor1", "actor2"]
     movie.save()
     return jsonify(movie)
+
+@app.route('/movie/create_/', methods=["GET", "POST"])
+def create_movie_2():
+    print(request)
+    print(request.method)
+    print(request.host)
+    
+    # get the data using any of the allowed requests
+    print(request.args, "args")
+    print(request.get_json(), "get json")
+    print(request.from_values(), "from values")
+    print(request.values)
+    
+    data = request.get_json()
+    # logic for data validation
+    # print(data['title'],data['year']) way to access data 
+    movie = Movie(**data)
+    # more logics here ..
+    
+    
+    # print(movie.title)
+    # print(movie.year)
+    movie.save()
+    
+    return jsonify(movie)
+
+
 
 @app.route('/movie/change/<id>/')
 def update_movie(id):
