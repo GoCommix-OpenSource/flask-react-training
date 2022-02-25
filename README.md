@@ -120,11 +120,14 @@ IntegerField(required =True, unique=True, primary_key=True)
 3. POSTMAN or any REST api test-client
 4. gitignore
 5. Packaging
+6. flask blueprint
+7. 
 
 # Some important links
 ### Queries and mutation guide and examples
-1. https://docs.mongoengine.org/guide/document-instances.html
-2. https://docs.mongoengine.org/guide/querying.html
-3. https://flask.palletsprojects.com/en/2.0.x/patterns/mongoengine/
+1. [flask-doc](https://docs.mongoengine.org/guide/document-instances.html)
+2. [queries](https://docs.mongoengine.org/guide/querying.html)
+3. [mongoengine](https://flask.palletsprojects.com/en/2.0.x/patterns/mongoengine/)
+4. [status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
 
