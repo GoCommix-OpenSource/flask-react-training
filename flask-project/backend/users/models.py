@@ -6,7 +6,7 @@ from . import bcrypt
 
 class User(db.Document):
     username = db.StringField(required =True, unique=True)
-    password = db.StringField(required =True)
+    password = db.DynamicField(required =True)
     def set_password(self, password):
         # encrypts password and saves in database
         self.password = bcrypt.generate_password_hash(password)
