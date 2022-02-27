@@ -4,7 +4,8 @@ from flask_mongoengine import MongoEngine
 from .users import create_user_module
 # create mongo instance
 mongo = MongoEngine()
-
+class MyException(BaseException):
+    pass
 
 
 def page_not_found(error):

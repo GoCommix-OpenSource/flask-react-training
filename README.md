@@ -121,7 +121,7 @@ IntegerField(required =True, unique=True, primary_key=True)
 4. gitignore
 5. Packaging
 6. flask blueprint
-7. 
+7. JWT
 
 # Some important links
 ### Queries and mutation guide and examples
