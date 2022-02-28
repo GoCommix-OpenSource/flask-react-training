@@ -130,4 +130,4 @@ IntegerField(required =True, unique=True, primary_key=True)
 3. [mongoengine](https://flask.palletsprojects.com/en/2.0.x/patterns/mongoengine/)
 4. [status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
-
+5. [flask-jwt-extended](https://flask-jwt-extended.readthedocs.io/en/stable/)
