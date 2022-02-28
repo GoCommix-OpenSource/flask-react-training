@@ -4,7 +4,7 @@ class Config(object):
     ### common config settings here
     any message goes here
     '''
-    pass
+    JWT_SECRET_KEY = 'eVCf7SGexvAVhWVMNMdHAaYe4psku6HHwbA9NM1K-2U_EubBa2qvOg'
 
 # Production
 class ProdConf(Config):

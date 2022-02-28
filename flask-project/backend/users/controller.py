@@ -1,19 +1,42 @@
 from flask import Blueprint, jsonify, request
 from .models import User
 from .. import MyException
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 # 1. instansiate a blueprint (blueprint)
 user_blueprint = Blueprint('user',__name__,template_folder='templates',url_prefix="/api")
 
 # 2. create routes using blueprint instance (blueprint)
 @user_blueprint.route('/users/', methods=['GET'])
 def users():
-    users = User.objects()
-    return jsonify(users)
+    response= {
+        "error":True,
+        "data":"",
+        "message":""
+    }
+    response["data"] = User.objects()
+    return jsonify(response)
 
 @user_blueprint.route('/users/<id>/', methods=['GET'])
+@jwt_required()
 def user(id):
-    users = User.objects.get(id=id)
-    return jsonify(users)
+    response= {
+        "error":True,
+        "data":"",
+        "message":""
+    }
+    try:
+        user_data = User.objects.get(id=id)
+    except:
+        response["message"] = "username does not exist" 
+        user_data = None   
+    if user_data is not None:
+        request_user = get_jwt_identity()
+        if user_data.username == request_user:
+            response["data"] = User.objects.get(id=id)
+            response["error"] = False
+        else:
+            response["message"] = "Request not allowed"
+    return jsonify(response)
 
 @user_blueprint.route('/signup/', methods=['POST'])
 def signup():
@@ -62,8 +85,8 @@ def login():
     }
     username = data["username"]
     password = data["password"]
-    
     try:
+        # check if username is registered or not
         user = User.objects.get(username = username)
     except:
         user = None
@@ -73,8 +96,8 @@ def login():
         if matched:
             # generate token
             # send token as a response
-            token="token"
-            response["data"]={"user":user,"token":token}
+            access_token = create_access_token(identity=username)
+            response["data"]={"user":user,"token":access_token}
             response['error']=False
             response['message']="User Logged in"
         else:

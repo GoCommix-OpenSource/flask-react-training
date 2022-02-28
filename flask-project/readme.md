@@ -23,4 +23,4 @@
 
 ## tasks
 1. validate password
-2. add new field to user document as "email"> validate email before saving it.
+2. Add new field to user document as "email"> validate email before saving it.

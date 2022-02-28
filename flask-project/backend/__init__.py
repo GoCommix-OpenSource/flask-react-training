@@ -2,8 +2,10 @@
 from flask import Flask, render_template
 from flask_mongoengine import MongoEngine
 from .users import create_user_module
+from flask_jwt_extended import JWTManager
 # create mongo instance
 mongo = MongoEngine()
+
 class MyException(BaseException):
     pass
 
@@ -15,6 +17,7 @@ def page_not_found(error):
 def create_app(object_name):
     app = Flask(__name__) # initialize Flask app
     app.config.from_object(object_name)
+    jwt = JWTManager(app)
     mongo.init_app(app) # initialize mongo engine
     app.register_error_handler(404,page_not_found)
     
